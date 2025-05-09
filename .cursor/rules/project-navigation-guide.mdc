@@ -1,0 +1,68 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Chat UI Project Navigation Guide
+
+This guide provides an overview of the Chat UI project structure and key components to help you navigate the codebase.
+
+## Project Structure
+
+The project is a Next.js application built with TypeScript and Tailwind CSS.
+
+-   **`src/app`**: Contains the main application pages and layout.
+    -   [src/app/page.tsx](mdc:src/app/page.tsx): The main entry point of the application, rendering the primary chat interface.
+    -   [src/app/layout.tsx](mdc:src/app/layout.tsx): The root layout component, responsible for setting up global styles, fonts, and the `ThemeProvider`.
+-   **`src/components`**: Houses all React components.
+    -   [src/components/Chat.tsx](mdc:src/components/Chat.tsx): The central component orchestrating the chat functionality. It manages message state, selected AI models, loading states, and the overall chat UI.
+    -   **`src/components/chat`**: Contains components specifically related to the chat interface.
+        -   [src/components/chat/ChatMessage.tsx](mdc:src/components/chat/ChatMessage.tsx): Renders individual chat messages, differentiating between user and assistant messages, and handling message-specific UI elements like timestamps and copy buttons.
+        -   [src/components/chat/UnifiedInputBar.tsx](mdc:src/components/chat/UnifiedInputBar.tsx): The input bar at the bottom of the chat interface. It handles user input, model selection, and message sending.
+        -   [src/components/chat/CompactModelSelector.tsx](mdc:src/components/chat/CompactModelSelector.tsx): A component for selecting AI models, allowing users to filter by provider, type, and capabilities.
+        -   [src/components/chat/LoadingIndicator.tsx](mdc:src/components/chat/LoadingIndicator.tsx): Displays various loading animations (text, embedding, audio) while the assistant is processing.
+    -   [src/components/ThemeToggle.tsx](mdc:src/components/ThemeToggle.tsx): A button component that allows users to switch between different themes (light, dark, midnight).
+-   **`src/contexts`**: Contains React context providers.
+    -   [src/contexts/themeContext.tsx](mdc:src/contexts/themeContext.tsx): Manages the application's theme state, allowing components to access and modify the current theme. It also handles persisting the theme to local storage.
+-   **`src/data`**: Stores static data used in the application.
+    -   [src/data/sample-models.ts](mdc:src/data/sample-models.ts): Provides a sample list of AI models with their properties (ID, name, provider, color, etc.).
+-   **`src/types`**: Defines TypeScript types and interfaces used throughout the project.
+    -   [src/types/ai.ts](mdc:src/types/ai.ts): Contains type definitions for AI models, messages, API responses, and related entities.
+-   **`public`**: Static assets that are publicly accessible.
+-   **Configuration Files**:
+    -   [next.config.ts](mdc:next.config.ts): Configuration file for Next.js.
+    -   [tsconfig.json](mdc:tsconfig.json): TypeScript compiler options.
+    -   [package.json](mdc:package.json): Lists project dependencies, scripts, and metadata.
+    -   `tailwind.config.ts` (not provided, but typically here for Tailwind CSS projects): Configuration for Tailwind CSS.
+    -   `postcss.config.mjs` (not provided, but typically here for PostCSS): Configuration for PostCSS.
+
+## Core Functionality
+
+### Chat Interface
+The main chat interface is managed by [src/components/Chat.tsx](mdc:src/components/Chat.tsx). It handles:
+-   Displaying messages from both user and assistant.
+-   Managing the state of the conversation (messages, loading status).
+-   Integrating the [src/components/chat/UnifiedInputBar.tsx](mdc:src/components/chat/UnifiedInputBar.tsx) for user input and model selection.
+-   Displaying [src/components/chat/ChatMessage.tsx](mdc:src/components/chat/ChatMessage.tsx) components for each message in the conversation.
+-   Showing loading states via [src/components/chat/LoadingIndicator.tsx](mdc:src/components/chat/LoadingIndicator.tsx).
+
+### Model Selection
+Users can select different AI models using the [src/components/chat/CompactModelSelector.tsx](mdc:src/components/chat/CompactModelSelector.tsx), which is part of the [src/components/chat/UnifiedInputBar.tsx](mdc:src/components/chat/UnifiedInputBar.tsx). The available models are defined in [src/data/sample-models.ts](mdc:src/data/sample-models.ts).
+
+### Theming
+The application supports multiple themes (light, dark, midnight), managed by [src/contexts/themeContext.tsx](mdc:src/contexts/themeContext.tsx). The [src/components/ThemeToggle.tsx](mdc:src/components/ThemeToggle.tsx) component allows users to switch themes. Theme-specific styles are applied using CSS variables defined in `src/app/globals.css` and utilized by various components.
+
+### State Management
+-   **Messages & Chat State**: Managed within [src/components/Chat.tsx](mdc:src/components/Chat.tsx) using React's `useState` and `useEffect` hooks.
+-   **Theme State**: Managed by [src/contexts/themeContext.tsx](mdc:src/contexts/themeContext.tsx).
+-   **Input State**: Managed within [src/components/chat/UnifiedInputBar.tsx](mdc:src/components/chat/UnifiedInputBar.tsx).
+
+## How to Navigate
+
+1.  **Start with `src/app/page.tsx`**: This is the entry point that renders the main `Chat` component.
+2.  **Explore `src/components/Chat.tsx`**: This component is the core of the chat application and will lead you to other related components like `ChatMessage`, `UnifiedInputBar`, etc.
+3.  **Understand Data Flow**: Trace how user input from `UnifiedInputBar` updates the messages in `Chat.tsx`, and how assistant responses are simulated and displayed.
+4.  **Check `src/types/ai.ts`**: Refer to this file for understanding the structure of data objects like `Message` and `AIModel`.
+5.  **Examine Theming**: Look at `src/contexts/themeContext.tsx` and how `ThemeToggle` interacts with it. Observe how theme variables are used in component styles.
+
+This guide should help you get started with understanding and navigating the Chat UI codebase.
