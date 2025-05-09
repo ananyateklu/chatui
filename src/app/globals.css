@@ -8,17 +8,29 @@
   --card-border: #e5e5e5;
   --input-bg: #ffffff;
   --input-border: #e2e2e2;
-  --primary: #2563eb;
-  --primary-hover: #1d4ed8;
+  --primary: #2563eb; /* Blue 600 */
+  --primary-hover: #1d4ed8; /* Blue 700 */
   --highlight: rgba(37, 99, 235, 0.1);
   --scrollbar-track: rgba(0, 0, 0, 0.05);
   --scrollbar-thumb: rgba(0, 0, 0, 0.2);
+  --muted-foreground: #6b7280; /* Cool Gray 500 */
+
+  /* Sidebar specific variables - Light Theme (Root serves as default light) */
+  --sidebar-bg: #f9fafb; /* Cool Gray 50 */
+  --sidebar-border: #e5e7eb; /* Cool Gray 200 */
+  --active-conversation-bg: #e0e7ff; /* Indigo 100 */
+  --active-conversation-foreground: #3730a3; /* Indigo 800 */
+  --hover-bg: #eff6ff; /* Blue 50 */
+  --primary-accent: #2563eb; /* Blue 600 */
+  --primary-accent-foreground: #ffffff; /* White */
+  --primary-accent-border: #1d4ed8; /* Blue 700 */
+  --primary-accent-hover: #1e40af; /* Blue 800 */
 }
 
 /* Light theme */
 .light-theme {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #171717; /* Neutral 800 - Good dark color for text */
   --card-bg: #f8f8f8;
   --card-border: #e5e5e5;
   --input-bg: #ffffff;
@@ -28,6 +40,18 @@
   --highlight: rgba(37, 99, 235, 0.1);
   --scrollbar-track: rgba(0, 0, 0, 0.05);
   --scrollbar-thumb: rgba(0, 0, 0, 0.2);
+  --muted-foreground: #525252; /* Neutral 600 - Darker for better contrast */
+
+  /* Sidebar specific variables - Light Theme */
+  --sidebar-bg: #f9fafb; /* Cool Gray 50 */
+  --sidebar-border: #e5e7eb; /* Cool Gray 200 */
+  --active-conversation-bg: #e0e7ff; /* Indigo 100 */
+  --active-conversation-foreground: #3730a3; /* Indigo 800 - Dark for good contrast */
+  --hover-bg: #eff6ff; /* Blue 50 */
+  --primary-accent: #2563eb; /* Blue 600 */
+  --primary-accent-foreground: #ffffff; /* White */
+  --primary-accent-border: #1d4ed8; /* Blue 700 */
+  --primary-accent-hover: #1e40af; /* Blue 800 */
 }
 
 /* Dark theme - Updated for deeper blacks and better contrast */
@@ -38,11 +62,30 @@
   --card-border: #222222;
   --input-bg: #1a1a1a;
   --input-border: #333333;
-  --primary: #3b82f6;
-  --primary-hover: #2563eb;
+  --primary: #3b82f6; /* Blue 500 */
+  --primary-hover: #2563eb; /* Blue 600 */
   --highlight: rgba(59, 130, 246, 0.15);
   --scrollbar-track: rgba(255, 255, 255, 0.05);
   --scrollbar-thumb: rgba(255, 255, 255, 0.15);
+  --muted-foreground: #a1a1aa; /* Neutral 400 */
+
+  /* Sidebar specific variables - Dark Theme */
+  --sidebar-bg: var(--card-bg); /* Consistent with card backgrounds */
+  --sidebar-border: var(--card-border); /* Consistent with card borders */
+  --active-conversation-bg: rgba(
+    59,
+    130,
+    246,
+    0.2
+  ); /* Primary (Blue 500) @ 20% opacity */
+  --active-conversation-foreground: var(
+    --primary
+  ); /* Primary text color for active item */
+  --hover-bg: rgba(255, 255, 255, 0.05); /* Subtle light hover */
+  --primary-accent: var(--primary); /* Use theme primary for New Chat button */
+  --primary-accent-foreground: #ffffff; /* White text on primary */
+  --primary-accent-border: var(--primary-hover); /* Darker primary for border */
+  --primary-accent-hover: var(--primary-hover); /* Darker primary for hover */
 }
 
 /* Midnight theme (dark blue tinted) */
@@ -53,11 +96,30 @@
   --card-border: #1f2b45;
   --input-bg: #0f172a;
   --input-border: #1e293b;
-  --primary: #4f46e5;
-  --primary-hover: #4338ca;
+  --primary: #4f46e5; /* Indigo 600 */
+  --primary-hover: #4338ca; /* Indigo 700 */
   --highlight: rgba(79, 70, 229, 0.2);
   --scrollbar-track: rgba(255, 255, 255, 0.03);
   --scrollbar-thumb: rgba(255, 255, 255, 0.15);
+  --muted-foreground: #94a3b8; /* Slate 400 */
+
+  /* Sidebar specific variables - Midnight Theme */
+  --sidebar-bg: var(--card-bg); /* Consistent with card backgrounds */
+  --sidebar-border: var(--card-border); /* Consistent with card borders */
+  --active-conversation-bg: rgba(
+    79,
+    70,
+    229,
+    0.2
+  ); /* Primary (Indigo 600) @ 20% opacity */
+  --active-conversation-foreground: var(
+    --primary
+  ); /* Primary text color for active item */
+  --hover-bg: rgba(255, 255, 255, 0.05); /* Subtle light hover */
+  --primary-accent: var(--primary); /* Use theme primary for New Chat button */
+  --primary-accent-foreground: #ffffff; /* White text on primary */
+  --primary-accent-border: var(--primary-hover); /* Darker primary for border */
+  --primary-accent-hover: var(--primary-hover); /* Darker primary for hover */
 }
 
 body {

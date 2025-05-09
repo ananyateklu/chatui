@@ -167,4 +167,23 @@ export interface AISettings {
         maxTokens?: number;
         systemMessage?: string;
     };
+}
+
+// Message type used in the Chat UI
+export type Message = {
+    id: string;
+    text: string;
+    sender: 'user' | 'assistant';
+    timestamp: Date;
+    modelId?: string;
+    processingType?: 'text' | 'embedding' | 'audio';
+};
+
+// Represents a single chat conversation
+export interface Conversation {
+    id: string;
+    title: string;         // e.g., first user message snippet or a custom title
+    messages: Message[];
+    lastActivity: Date;    // Timestamp of the last message or interaction
+    modelId?: string;       // Model used in the conversation, if consistent
 } 
